@@ -1,0 +1,2 @@
+"strict"
+console.log("hi")
