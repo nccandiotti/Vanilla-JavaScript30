@@ -144,4 +144,22 @@ function transportationFn() {
     }, {})
   )
 }
+
 transportationFn()
+const repeatTransportation = data.reduce((obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0
+  }
+  obj[item]++
+  return obj
+}, {})
+console.log(repeatTransportation)
+
+const trans2 = data.reduce((obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0
+  }
+  obj[item]++
+  return obj
+}, {})
+console.log(trans2)
