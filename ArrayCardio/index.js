@@ -64,24 +64,57 @@ const people = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
+function filterInventors(arr) {
+  console.log(arr.filter((i) => i.year >= 1500 && i.year <= 1600))
+}
 
+filterInventors(inventors)
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
+function firstAndLastNames(arr) {
+  console.log(arr.map((i) => `${i.first} ${i.last}`))
+}
+firstAndLastNames(inventors)
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-
+function sortByBirthdate() {
+  console.log(inventors.sort((a, b) => a.year - b.year))
+}
+sortByBirthdate()
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
-
+function reduceYears() {
+  //   mapYears = inventors.map((i) => i.passed - i.year)
+  //   console.log(mapYears)
+  console.log(
+    inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year)
+    }, 0)
+  )
+}
+reduceYears()
 // 5. Sort the inventors by years lived
+function sortByYearsLived() {
+  console.table(
+    inventors.sort((a, b) => a.passed - a.year - (b.passed - b.year))
+  )
+}
+sortByYearsLived()
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-
+// const category = document.querySelector(".mw-category")
+// const links = Array.from(category.querySelectorAll("a"))
+// const blvdnamesArray = links.map((link) => link.textContent)
+// const deNames = blvdnamesArray.filter((name) => name.includes("de"))
+// console.log(deNames)
 // 7. sort Exercise
 // Sort the people alphabetically by last name
-
+function sortAlphabetically() {
+  console.log(people.sort((a, b) => a.localeCompare(b)))
+}
+sortAlphabetically()
 // 8. Reduce Exercise
 // Sum up the instances of each of these
 const data = [
@@ -100,3 +133,15 @@ const data = [
   "car",
   "truck",
 ]
+function transportationFn() {
+  console.log(
+    data.reduce((obj, item) => {
+      if (!obj[item]) {
+        obj[item] = 0
+      }
+      obj[item]++
+      return obj
+    }, {})
+  )
+}
+transportationFn()
