@@ -133,8 +133,20 @@ const data = [
   "car",
   "truck",
 ]
+
+function sum(data) {
+  data.reduce((obj, item) => {
+    if (!obj[item]) {
+      obj[item] = 0
+    }
+    obj[item]++
+    return obj
+  }, {})
+}
+sum(data)
+
 function transportationFn() {
-  console.log(
+  console.table(
     data.reduce((obj, item) => {
       if (!obj[item]) {
         obj[item] = 0
@@ -153,7 +165,7 @@ const repeatTransportation = data.reduce((obj, item) => {
   obj[item]++
   return obj
 }, {})
-console.log(repeatTransportation)
+// console.log(repeatTransportation)
 
 const trans2 = data.reduce((obj, item) => {
   if (!obj[item]) {
@@ -162,4 +174,4 @@ const trans2 = data.reduce((obj, item) => {
   obj[item]++
   return obj
 }, {})
-console.log(trans2)
+// console.log(trans2)
